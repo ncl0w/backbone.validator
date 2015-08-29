@@ -15,6 +15,7 @@ inspirada en el framework backend Laravel.. Con la flexibilidad necesaria para r
 validaciones mas complejas que no sean soportadas por el plugin...
 
 COMO INICIAR:
+
 1. Descarga cualquiera de las versiones de produccion del plugin:
 	
 	* con errores en Español: [backbone.validator.min.js](https://raw.githubusercontent.com/Wealthymaury/backbone.validator/master/README.md)*10kb*
