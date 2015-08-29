@@ -1,5 +1,5 @@
 #Backbone validator v0.5
-##Mauricio Manjarrez @wealthymaury
+###Mauricio Manjarrez @wealthymaury
 
 Plugin para validar modelos en Backbone.js
 
