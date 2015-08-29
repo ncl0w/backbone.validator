@@ -4,11 +4,13 @@
 Plugin para validar modelos en Backbone.js
 
 Desarrollado y probando con las siguientes versiones:
-Backbone.js v1.2.2
-Underscore.js v1.8.3
+
+* Backbone.js v1.2.2
+* Underscore.js v1.8.3
 
 
 INTRODUCCION:
+
 Este plugin es una manera facil de realizar validaciones a los modelos de Backbone
 sin necesidad de escribir toda la logica que eso conlleva, utilizando una sintaxis
 inspirada en el framework backend Laravel.. Con la flexibilidad necesaria para realizar
