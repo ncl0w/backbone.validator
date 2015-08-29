@@ -20,8 +20,8 @@ COMO INICIAR:
 
 1. Descarga cualquiera de las versiones de produccion del plugin:
 	
-	* con errores en Español: [backbone.validator.min.js](https://raw.githubusercontent.com/Wealthymaury/backbone.validator/master/README.md)*10kb*
-	* con errores en Ingles: [backbone.validator.min.js](https://raw.githubusercontent.com/Wealthymaury/backbone.validator/master/README.md)*10kb*
+	* con errores en Español: [backbone.validator.min.js](https://raw.githubusercontent.com/Wealthymaury/backbone.validator/master/dist/es/backbone.validator.min.js)*10kb*
+	* con errores en Ingles: [backbone.validator.min.js](https://raw.githubusercontent.com/Wealthymaury/backbone.validator/master/dist/en/backbone.validator.min.js)*10kb*
 
 2. Incluye el archivo en tu pagina HTML
 	```html
