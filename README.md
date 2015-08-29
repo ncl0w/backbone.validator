@@ -40,7 +40,9 @@ COMO INICIAR:
 	```
 
 	  Donde:
+	  
 	  	campoN -> campo del modelo a aplicar las reglas
+	  	
 	  	reglas -> deben tener el siguiente formato 'regla1|regla2|reglaN:arg1,arg2|...'
 	  
 	  Ejemplo:
