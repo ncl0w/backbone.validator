@@ -9,14 +9,14 @@ Desarrollado y probando con las siguientes versiones:
 * Underscore.js v1.8.3
 
 
-INTRODUCCION:
+####INTRODUCCION:
 
 Este plugin es una manera facil de realizar validaciones a los modelos de Backbone
 sin necesidad de escribir toda la logica que eso conlleva, utilizando una sintaxis
 inspirada en el framework backend Laravel.. Con la flexibilidad necesaria para realizar
 validaciones mas complejas que no sean soportadas por el plugin...
 
-COMO INICIAR:
+####COMO INICIAR:
 
 1. Descarga cualquiera de las versiones de produccion del plugin:
 	
@@ -151,6 +151,64 @@ COMO INICIAR:
     	}
     ```
 
+####EJEMPLO ILUSTRATIVO COMPLETO:
+
+```js
+var Person = Backbone.Model.extend(
+{
+    urlRoot: 'persons',
+    validation : true,
+    validatorRules : {
+        name        : 'required|string|miNuevaRegla:1,2',
+        type        : 'required|string|in:admin,empl',
+        email       : 'required|string|email',
+        timestamp   : 'required|date|before:' + "2015-08-03",
+    },
+    moreValidations: function()
+    {      
+        if(condicion_de_error)
+        {
+            return {
+                name: [
+                    'Otro error',
+                    'Mas'
+                ]
+            }
+        }
+    },
+    miNuevaRegla: function(field_name, arg1, arg2)
+    {
+        var value = this.get(field_name);
+        if(condicion_de_error)
+        {
+            return 'No pasa mi validación personalizada';        
+        }
+    }
+});
+
+m = new Person({
+        name: '',
+        type: 'admin',
+        email: 'email@example.com',
+        timestamp: '2015-08-29T13:49:27.977446Z',
+});
+
+m.isValid();
+/*
+ * errors
+ * name: 
+   [
+        'El campo es requerido', 
+        'No pasa mi validación personalizada', 
+        'otro error', 
+        'mas'
+   ]
+ * timestamp: 
+   [
+        'La fecha debe ser anterior a: 2015-08-03'
+   ]
+ */
+```
 
 
 
