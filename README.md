@@ -122,6 +122,31 @@ COMO INICIAR:
    ```
 
    Lo que agregues sera usado donde se requiera...
+   
+9. Si lo deseas, puedes crear tus propias reglas de validacion que se apeguen a la sintaxis del plugin, para ello realiza lo siguiente:
+   
+   * debes generar una funcion dentro del modelo que tenga el nombre con el que vaz a conocer la regla,
+   * dicha funcion recide como primer parametro el nombre del campo que se esta validando, 
+   * y en caso de que quieras pasarle argumentos, se reciben a continuacion del 'field_name':
+   
+    ```js
+    miNuevaRegla: function(field_name, arg1, arg2)
+    {
+    	var value = this.get(field_name);
+    	
+    	//aqui haz la logica que quieras, pero en caso de error debes retornar una cadena...
+    	
+    	return 'Mi mensaje de error para la validacion..';
+    }
+    ```
+    
+    * La manera de usar tu regla, para este ejemplo seira asi:
+    
+    ```js
+    	validatorRules: {
+    	   name: 'miNuevaRegla:arg1,arg2|required|mas_Reglas'
+    	}
+    ```
 
 
 
