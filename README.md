@@ -193,26 +193,27 @@ var Person = Backbone.Model.extend(
 });
 
 m = new Person({
-        name: '',
-        type: 'admin',
-        email: 'email@example.com',
-        timestamp: '2015-08-29T13:49:27.977446Z',
+    name: '',
+    type: 'admin',
+    email: 'email@example.com',
+    timestamp: '2015-08-29T13:49:27.977446Z',
 });
 
 m.isValid();
 /*
  * errors
  * name: 
-   [
-        'El campo es requerido', 
-        'No pasa mi validación personalizada', 
-        'otro error', 
-        'mas'
-   ]
+ * [
+ *    'El campo es requerido', 
+ *    'No pasa mi validación personalizada', 
+ *    'otro error', 
+ *    'mas'
+ * ]
  * timestamp: 
-   [
-        'La fecha debe ser anterior a: 2015-08-03'
-   ]
+ * [
+ *    'La fecha debe ser anterior a: 2015-08-03'
+ * ]
+ *
  */
 ```
 
