@@ -129,6 +129,7 @@ COMO INICIAR:
    * dicha funcion recide como primer parametro el nombre del campo que se esta validando, 
    * y en caso de que quieras pasarle argumentos, se reciben a continuacion del 'field_name':
    
+    
     ```js
     miNuevaRegla: function(field_name, arg1, arg2)
     {
@@ -140,11 +141,13 @@ COMO INICIAR:
     }
     ```
     
-    * La manera de usar tu regla, para este ejemplo seira asi:
+   
+    * La manera de usar tu regla, para este ejemplo seria asi:
     
+   
     ```js
     	validatorRules: {
-    	   name: 'miNuevaRegla:arg1,arg2|required|mas_Reglas'
+    	   name: 'miNuevaRegla:arg1,arg2'
     	}
     ```
 
