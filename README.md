@@ -55,7 +55,7 @@ COMO INICIAR:
 				active 	: 'required|boolean',
 				type 	: 'required|in:admin,empl'
 		  }
-	  }
+	  });
 	  ```
 
 4. Las reglas que se pueden usar son las siguientes:
