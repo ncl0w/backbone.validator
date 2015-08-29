@@ -41,7 +41,7 @@ Este es un plugin que permite hacer validaciones a modelos Backbone utilizando u
 		2. moreValidations - opcional
 			puedes incluir las condifiones necesarias para validar, respetando el principio de backbone
 			que es retornar un objeto con los mensaje de error para cada atributo del modelo.
-
+			
 			moreValidations: function()
 			{
 				return {
@@ -55,11 +55,12 @@ Este es un plugin que permite hacer validaciones a modelos Backbone utilizando u
 	Un campo del modelo puede tener multiples validaciones o ninguna
 
 	EJEMPLOS:
+	```js
 	- validatorRules : {
 			nombre 	: 'required|string|in:1,2',
 			edad 	: 'required|integer|not_in:10,11'
 	  },
-
+	  
 	- moreValidations : function(model, options)
 	  {
 		if(algo)
@@ -70,6 +71,7 @@ Este es un plugin que permite hacer validaciones a modelos Backbone utilizando u
 
 	CASO DE USO:
 	
+
 	- var Person = Backbone.Model.extend(
 		{
 			urlRoot: '',
