@@ -108,20 +108,26 @@ validaciones mas complejas que no sean soportadas por el plugin...
 	}
 	```
 	
-6. Una vez escrito tu modelo, haz la instancia y ejecuta model.isValid(), funciona como normalmente lo haria
+6. Una vez escrito tu modelo, haz la instancia y ejecuta model.isValid(), esto funciona como normalmente backbone lo hace...
 
-7. Para acceder a los errores es con model.validationError
+7. Para acceder a los errores es con model.validationError igual que siempre...
 
-8. hay algunos mensajes que usan el nombre del campo en el modelo, si deseas que el nombre aparezca a tu manera
-   solo agregalo a Validator.Lang['ex-mx|en-us'].fields asi:
-	```js
+8. hay algunos mensajes  de error que usan el nombre del campo que origina el error en el modelo, si deseas que el nombre aparezca a tu manera y no como esta definido en el modelo solo agregalo a: 
+```js
+Validator.Lang['ex-mx|en-us'].fields
+```
+asi:
+   ```js
    Validator.Lang['en-us'].fields.name = 'Name';
-   Validator.Lang['es-mx'].fields.name = 'Name';
+   Validator.Lang['es-mx'].fields.name = 'Nombre';
    Validator.Lang['en-us'].fields.age = 'Age';
    Validator.Lang['es-mx'].fields.age = 'Edad';
    ```
-
-   Lo que agregues sera usado donde se requiera...
+   Esto serviria por ejemplo si tu modelo tiene un atributo que se llama 'type' y en el el error quieres que aparezca 'Tipo',
+   solo tienes que definir su valor para el idioma:
+   ```js
+   Validator.Lang['en-us'].fields.type = 'Tipo';
+   ```
    
 9. Si lo deseas, puedes crear tus propias reglas de validacion que se apeguen a la sintaxis del plugin, para ello realiza lo siguiente:
    
