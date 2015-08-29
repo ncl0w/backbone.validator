@@ -123,10 +123,10 @@ asi:
    Validator.Lang['en-us'].fields.age = 'Age';
    Validator.Lang['es-mx'].fields.age = 'Edad';
    ```
-   Esto serviria por ejemplo si tu modelo tiene un atributo que se llama 'type' y en el el error quieres que aparezca 'Tipo',
+   Esto serviria por ejemplo si tu modelo tiene un atributo que se llama 'type' y en el error quieres que aparezca 'Tipo',
    solo tienes que definir su valor para el idioma:
    ```js
-   Validator.Lang['en-us'].fields.type = 'Tipo';
+   Validator.Lang['es-mx'].fields.type = 'Tipo';
    ```
    
 9. Si lo deseas, puedes crear tus propias reglas de validacion que se apeguen a la sintaxis del plugin, para ello realiza lo siguiente:
