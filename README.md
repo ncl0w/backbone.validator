@@ -132,7 +132,7 @@ asi:
 9. Si lo deseas, puedes crear tus propias reglas de validacion que se apeguen a la sintaxis del plugin, para ello realiza lo siguiente:
    
    * debes generar una funcion dentro del modelo que tenga el nombre con el que vaz a conocer la regla,
-   * dicha funcion recide como primer parametro el nombre del campo que se esta validando, 
+   * dicha funcion recibe como primer parametro el nombre del campo que se esta validando, 
    * y en caso de que quieras pasarle argumentos, se reciben a continuacion del 'field_name':
    
     
