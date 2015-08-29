@@ -68,5 +68,35 @@ Este es un plugin que permite hacer validaciones a modelos Backbone utilizando u
 		}
 	  },
 
+	CASO DE USO:
+	
+	var Person = Backbone.Model.extend(
+		{
+			urlRoot: '',
+			validation : true,
+			defaults : {
+				name 	: 24,
+				name_confirmation: 'a',
+				avatar 	: '',
+				type 	: 'a',
+				email 	: null,
+			},
+			validatorRules : {
+				name 		: 'required|string|confirmed|boolean|length:2',
+				avatar 		: 'string|mimes:jpeg,png,jpg',
+				type 		: 'required|string|in:adm,emp',
+				email 		: 'required|string|email',
+			},
+			moreValidations: function()
+			{
+				return {
+					name: [
+						'Otro error',
+						'Mas'
+					]
+				}
+			}
+		});
+
 	mas informacion en cada funcion...
  */
