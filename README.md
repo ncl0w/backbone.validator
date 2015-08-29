@@ -23,7 +23,7 @@ COMO INICIAR:
 	* con errores en Español: [backbone.validator.min.js](https://raw.githubusercontent.com/Wealthymaury/backbone.validator/master/dist/es/backbone.validator.min.js) *10kb*
 	* con errores en Ingles: [backbone.validator.min.js](https://raw.githubusercontent.com/Wealthymaury/backbone.validator/master/dist/en/backbone.validator.min.js) *10kb*
 
-2. Incluye el archivo en tu pagina HTML
+2. Incluye el archivo en tu pagina HTML despues de Backbone.js y sus dependencias
 	```html
 	- <script src="backbone.validator.min.js"></script>
 	```
