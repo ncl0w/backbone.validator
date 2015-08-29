@@ -70,7 +70,7 @@ Este es un plugin que permite hacer validaciones a modelos Backbone utilizando u
 
 	CASO DE USO:
 	
-	3. var Person = Backbone.Model.extend(
+	- var Person = Backbone.Model.extend(
 		{
 			urlRoot: '',
 			validation : true,
