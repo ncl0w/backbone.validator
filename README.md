@@ -1,104 +1,121 @@
-# backbone.validator
-Este es un plugin que permite hacer validaciones a modelos Backbone utilizando una sintaxis inspirada en Laravel
+###Backbone validator v0.5
+##Mauricio Manjarrez @wealthymaury
 
-/*
- * Backbone Validator v0.4
- *
- * por: Mauricio Manjarrez Magallón, @wealthymaury
- *____________________________________________________________________________________
+Plugin para validar modelos en Backbone.js
 
-	VALIDACION DE MODELOS AL ESTILO LARAVEL
-  ____________________________________________________________________________________
+Desarrollado y probando con las siguientes versiones:
+Backbone.js v1.2.2
+Underscore.js v1.8.3
 
- * Metodos:
 
-	**  Para las validaciones, 
-		el pluggin primero ejecutan las predefinidas descritas en (validatorRules), 
-		y luego las demas que se definan en (moreValidations):
+INTRODUCCION:
+Este plugin es una manera facil de realizar validaciones a los modelos de Backbone
+sin necesidad de escribir toda la logica que eso conlleva, utilizando una sintaxis
+inspirada en el framework backend Laravel.. Con la flexibilidad necesaria para realizar
+validaciones mas complejas que no sean soportadas por el plugin...
 
-		1. validatorRules - metodo 
-			puedes usar las siguientes validaciones:
-				- required
-				- string
-				- integer
-				- in: 			[lista de values(separados por ,)]  |	in:1,2,3
-				- not_in: 		[lista de values(separados por ,)]  |	not_in:1,2,3
-				- array
-				- min:value     									|	min:1
-				- minLength:value     								|	minLegth:1
-				- max:value 										|	max:2
-				- maxLength:value     								|	maxLegth:1
-				- between:  	[2 valores separados por ,] 		|	between:1,5
-				- betweenLength:[2 valores separados por ,] 		|	betweenLength:1,5
-				- length: 											| 	length:5
-				- same: 		[campo del modelo a evaluar] 		|	same:field
-				- different: 	[campo del modelo a evaluar] 		|	different:field
-				- confirmed 											
-				- boolean
-				- email
-				- mimes 		[atributos] 						|  	mimes:png,jpg,jpeg
-
-		2. moreValidations - opcional
-			puedes incluir las condifiones necesarias para validar, respetando el principio de backbone
-			que es retornar un objeto con los mensaje de error para cada atributo del modelo.
-			
-			moreValidations: function()
-			{
-				return {
-					attr: [
-						'error 1',
-						'error 2'
-					]
-				}
-			}
-
-	Un campo del modelo puede tener multiples validaciones o ninguna
-
-	EJEMPLOS:
-	```js
-	- validatorRules : {
-			nombre 	: 'required|string|in:1,2',
-			edad 	: 'required|integer|not_in:10,11'
-	  },
-	  
-	- moreValidations : function(model, options)
-	  {
-		if(algo)
-		{
-			return 'Mensjae de error';
-		}
-	  },
-
-	CASO DE USO:
+COMO INICIAR:
+1. Descarga cualquiera de las versiones de produccion del plugin:
 	
+	* con errores en Español: [backbone.validator.min.js](https://raw.githubusercontent.com/Wealthymaury/backbone.validator/master/README.md)*10kb*
+	* con errores en Ingles: [backbone.validator.min.js](https://raw.githubusercontent.com/Wealthymaury/backbone.validator/master/README.md)*10kb*
 
-	- var Person = Backbone.Model.extend(
-		{
-			urlRoot: '',
-			validation : true,
-			defaults : {
-				name 	: 24,
-				name_confirmation: 'a',
-				avatar 	: '',
-				type 	: 'a',
-				email 	: null,
-			},
-			validatorRules : {
-				name 		: 'required|string|confirmed|boolean|length:2',
-				avatar 		: 'string|mimes:jpeg,png,jpg',
-				type 		: 'required|string|in:adm,emp',
-				email 		: 'required|string|email',
-			},
-			moreValidations: function()
-			{
-				return {
-					name: [
-						'Otro error',
-						'Mas'
-					]
-				}
-			}
-		});
+2. Incluye el archivo en tu pagina HTML
+	```html
+	- <script src="bacobone.validator.min.js"></script>
+	```
 
-	mas informacion en cada funcion...
- */
+3. Haz la declaracion de tus modelos siguiendo las siguientes reglas:
+	- Para utilizar la validacion de backbone.validator, debes incluir una funcion en tu modelo
+	  con el nombre 'validatorRules', la cual debe tener la siguiente estructura:
+	```js
+	  validatorRules : {
+			campo1 	: 'reglas',
+			campo2 	: 'reglas',
+			campoN 	: 'reglas',
+	  }
+	```
+
+	  Donde:
+	  	campoN -> campo del modelo a aplicar las reglas
+	  	reglas -> deben tener el siguiente formato 'regla1|regla2|reglaN:arg1,arg2|...'
+	  
+	  Ejemplo:
+	  ```js
+	  var M = Backbone.Model.extend(
+	  {   urlRoot: '',
+		  validatorRules : {
+				name 	: 'required|string|minLength:2|maxLength:10',
+				age 	: 'required|integer|between:15,99',
+				active 	: 'required|boolean',
+				type 	: 'required|in:admin,empl'
+		  }
+	  }
+	  ```
+
+4. Las reglas que se pueden usar son las siguientes:
+	```js	
+    REGLA			[OPCIONES] 							| 	EJEMPLO
+	--------------------------------------------------------------------------
+	- required
+	- string
+	- integer
+	- in 			[lista de values(separados por ,)]  |	in:1,2,3
+	- not_in 		[lista de values(separados por ,)]  |	not_in:1,2,3
+	- array
+	- min		    [value integer]						|	min:1
+	- minLength		[value integer]	    				|	minLegth:1
+	- max			[value integer]						|	max:2
+	- maxLength  	[value integer]	    				|	maxLegth:1
+	- between	  	[2 valores separados por ,] 		|	between:1,5
+	- betweenLength	[2 valores separados por ,] 		|	betweenLength:1,5
+	- length 		[valor]								| 	length:5
+	- same	 		[campo del modelo a evaluar] 		|	same:field
+	- different 	[campo del modelo a evaluar] 		|	different:field
+	- confirmed 	[evalua que exista un campo que se llame igual pero con terminacion _confirmed y que tenga el mismo valor]										
+	- boolean
+	- email
+	- mimes 		[atributos] 						|  	mimes:png,jpg,jpeg
+	- date  											
+	- before 		[atributo fecha] 					|  	before:2015-08-03
+	- after 		[atributo fecha] 					|  	after:2015-08-03
+	```
+
+5. Si deseas hacer validaciones adicionales puedes implementar el siguiente metodo y ahi escribirlas:
+	```js
+	moreValidations : function(model, options)
+	{ 	
+		//deberas retornar los errores en el siguiente formato
+		//la logica tu la recides
+		var errors = {
+			field1: [
+				'Error1',
+				'Error2',
+			],
+			field2: [
+				'Error1',
+				'Error2',
+			]
+		};
+
+	}
+	```
+	
+6. Una vez escrito tu modelo, haz la instancia y ejecuta model.isValid(), funciona como normalmente lo haria
+
+7. Para acceder a los errores es con model.validationError
+
+8. hay algunos mensajes que usan el nombre del campo en el modelo, si deseas que el nombre aparezca a tu manera
+   solo agregalo a Validator.Lang['ex-mx|en-us'].fields asi:
+	```js
+   Validator.Lang['en-us'].fields.name = 'Name';
+   Validator.Lang['es-mx'].fields.name = 'Name';
+   Validator.Lang['en-us'].fields.age = 'Age';
+   Validator.Lang['es-mx'].fields.age = 'Edad';
+   ```
+
+   Lo que agregues sera usado donde se requiera...
+
+
+
+
