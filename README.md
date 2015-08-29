@@ -25,7 +25,7 @@ COMO INICIAR:
 
 2. Incluye el archivo en tu pagina HTML
 	```html
-	- <script src="bacobone.validator.min.js"></script>
+	- <script src="backbone.validator.min.js"></script>
 	```
 
 3. Haz la declaracion de tus modelos siguiendo las siguientes reglas:
