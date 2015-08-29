@@ -90,8 +90,9 @@ COMO INICIAR:
 	```js
 	moreValidations : function(model, options)
 	{ 	
+		//la logica tu la recides, pero...
 		//deberas retornar los errores en el siguiente formato
-		//la logica tu la recides
+	
 		var errors = {
 			field1: [
 				'Error1',
@@ -102,7 +103,8 @@ COMO INICIAR:
 				'Error2',
 			]
 		};
-
+		
+		return errors;
 	}
 	```
 	
