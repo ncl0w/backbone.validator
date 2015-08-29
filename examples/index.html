@@ -37,7 +37,7 @@
 				timestamp: '2015-08-29T13:49:27.977446Z'
 			},
 			validatorRules : {
-				name 		: 'required|string|confirmed|boolean|length:2|same:type',
+				name 		: 'required|string|nueva:1,2',
 				avatar 		: 'string|mimes:jpeg,png,jpg',
 				type 		: 'required|string|in:adm,emp',
 				email 		: 'required|string|email',
@@ -51,6 +51,12 @@
 						'Mas'
 					]
 				}
+			},
+			nueva: function(field_name, arg1, arg2)
+			{
+				var value = this.get(field_name);
+				//tu propia logica
+				return 'No pasa mi validacion';
 			}
 		});
 
