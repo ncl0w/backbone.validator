@@ -29,8 +29,7 @@ validaciones mas complejas que no sean soportadas por el plugin...
 	```
 
 3. Haz la declaracion de tus modelos siguiendo las siguientes reglas:
-	- Para utilizar la validacion de backbone.validator, debes incluir una funcion en tu modelo
-	  con el nombre 'validatorRules', la cual debe tener la siguiente estructura:
+	- Para utilizar la validacion de backbone.validator, debes incluir una variable llamada validation con valor true y 	          ademas una funcion en tu modelo con el nombre 'validatorRules', la cual debe tener la siguiente estructura:
 	```js
 	  validatorRules : {
 			campo1 	: 'reglas',
@@ -49,6 +48,7 @@ validaciones mas complejas que no sean soportadas por el plugin...
 	  ```js
 	  var M = Backbone.Model.extend(
 	  {   urlRoot: '',
+	  	validation: true,
 		  validatorRules : {
 				name 	: 'required|string|minLength:2|maxLength:10',
 				age 	: 'required|integer|between:15,99',
