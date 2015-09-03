@@ -47,7 +47,8 @@ validaciones mas complejas que no sean soportadas por el plugin...
 	  Ejemplo:
 	  ```js
 	  var M = Backbone.Model.extend(
-	  {       urlRoot: '',
+	  {       
+	          urlRoot: '',
 	  	  validation: true,
 		  validatorRules : {
 				name 	: 'required|string|minLength:2|maxLength:10',
