@@ -4,7 +4,7 @@ module.exports = function(grunt)
 	{
 		uglify : {
 			options : {
-				compress : true,
+				compress : false,
 				report : true,
 				banner : '/* \n * Backbone Validator v0.5 \n * \n * por: Mauricio Manjarrez Magallón, @wealthymaury \n * Minified on <%= grunt.template.date() %> \n */\n'
 			},

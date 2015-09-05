@@ -4,7 +4,7 @@ _.extend(Backbone.Model.prototype, {
 	 * luego, en caso de existir el metodo 'moreValidations', lo ejecuta.
 	 */
 	validate : function(model, options)
-	{
+	{	
 		if(this.validation == true)
 		{
 			//info(getMessage('info', 'start_validation') + JSON.stringify(this.toJSON()));
